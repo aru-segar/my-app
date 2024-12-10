@@ -1,0 +1,94 @@
+/* Box Container */
+.box-container {
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  align-items: flex-start; /* Align items to the top */
+  gap: 20px; /* Space between the boxes */
+  padding: 10px 5px;
+  z-index: 10;
+  position: fixed;
+  top: 560px;
+  right: 10px; /* Adjusted margin to move the container slightly */
+}
+
+/* Individual Box */
+.box {
+  background-color: #ffffff;
+  border: 2px solid #2c3e50;
+  padding: 10px 0px; 
+  border-radius: 10px;
+  width: 200px; /* Adjusted width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Icon and Heading Container */
+.icon-heading {
+  align-items: center; 
+  gap: 10px; 
+  margin-bottom: 10px; 
+}
+
+/* Icon Styling */
+.icon {
+  font-size: 30px; /* Adjusted icon size */
+  color: #333;
+}
+
+/* Title */
+h3 {
+  font-size: 18px; 
+  margin: 2px;
+}
+
+/* Count Buttons */
+.count-btn {
+  background-color: #000;
+  color: white;
+  font-size: 12px; /* Adjusted font size */
+  padding: 10px; /* Adjusted padding */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin: 10px;
+}
+
+.count-btn:active {
+  transform: scale(0.95);
+}
+
+.plus-btn:hover {
+  background-color: #4caf50;
+}
+
+.minus-btn:hover {
+  background-color: #f44336;
+}
+
+/* Count Styling */
+.count {
+  font-size: 12px; /* Adjusted font size */
+  font-weight: bold;
+  color: #222;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .box-container {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+
+  .box {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+}

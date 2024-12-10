@@ -1,0 +1,77 @@
+/* Container for the entire progress bar section */
+.progress-wrapper {
+  width: 68%; 
+  padding: 15px;
+  background-color: #ffffff;
+  border: 2px solid #2C3E50;
+  border-radius: 16px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  height: 90px; 
+  display: flex;
+  flex-direction: column;
+  position: fixed; 
+  top: 110px; 
+  left: 24px; 
+  z-index: 1000;
+}
+
+/* Header with icon and label */
+.header-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px; 
+}
+
+.ticket-icon {
+  font-size: 30px; 
+  margin-right: 12px; 
+  color: #f39c12; 
+}
+
+.progress-header {
+  font-size: 20px; 
+  color: #333;
+  font-weight: bold;
+  margin: 0; 
+}
+
+/* Progress container background */
+.progress-container {
+  background-color: #f5f5f5; /* Light gray */
+  height: 12px; 
+  border-radius: 10px;
+  width: 100%;
+}
+
+/* Progress bar itself */
+.progress-bar {
+  height: 100%;
+  background-color: #f39c12;
+  text-align: center;
+  line-height: 12px; 
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Adjusting the layout for smaller screens */
+@media (max-width: 600px) {
+  .progress-wrapper {
+    width: 95%; 
+    height: auto;
+    padding: 15px;
+    left: 10px; 
+    bottom: 10px; 
+  }
+
+  .progress-header {
+    font-size: 1.2rem; /* Smaller header for mobile */
+  }
+
+  .ticket-icon {
+    font-size: 1.8rem; /* Smaller icon for mobile */
+  }
+
+  .progress-bar {
+    height: 8px; /* Thinner bar for smaller screens */
+  }
+}

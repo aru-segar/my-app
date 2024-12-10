@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ConfigurationForm from "./components/configuration/ConfigurationForm";
+//import "./styles/ConfigurationForm.css";
+import Header from "./components/header/Header";
+//import "./styles/Header.css";
+import CustomerVendorManagement from "./components/customer-vendor-management/CustomerVendorManagement";
+//import "./styles/CustomerVendorManagement.css";
+import ProgressBar from "./components/progress-bar/ProgressBar";
+import StartStopSystem from "./components/start-stop-system/StartStopSystem";
+import Console from "./components/console/Console";
+import LineChart from "./components/line-chart/LineChart";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header>
+        <StartStopSystem />
+      </Header>
+      <ConfigurationForm />
+      <CustomerVendorManagement />
+      <ProgressBar />
+      <LineChart />
+      <Console />
     </div>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,75 @@
+/* Control Buttons Styling */
+.control-buttons {
+  display: flex;
+  gap: 15px; /* Slightly larger gap for better spacing */
+  align-items: center;
+  margin-right: 20px; /* Align buttons on the right in the header */
+}
+
+/* Button Styles */
+.start-btn,
+.stop-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px; /* Comfortable padding */
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px; /* Modern rounded corners */
+  color: white;
+  font-family: 'Poppins', sans-serif; /* Matching font with the header */
+  font-weight: 600; /* Bold for emphasis */
+  transition: all 0.3s ease-in-out; /* Smooth transitions */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Consistent shadow with header */
+}
+
+/* Start Button */
+.start-btn {
+  background: linear-gradient(90deg, #4caf50, #45a049); /* Gradient for premium look */
+}
+
+.start-btn:hover {
+  background: linear-gradient(90deg, #45a049, #388e3c);
+  transform: scale(1.1); /* Slight scaling for interactivity */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Stop Button */
+.stop-btn {
+  background: linear-gradient(90deg, #f44336, #e53935); /* Matching gradient */
+}
+
+.stop-btn:hover {
+  background: linear-gradient(90deg, #e53935, #d32f2f);
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Icon */
+.button-icon {
+  font-size: 18px; /* Icon size for clear visibility */
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+  .start-btn,
+  .stop-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .control-buttons {
+    flex-direction: column; /* Stack buttons vertically on small screens */
+    gap: 10px;
+  }
+
+  .start-btn,
+  .stop-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
