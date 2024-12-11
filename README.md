@@ -1,70 +1,162 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Real-time Event Ticketing System - w2051831
 
-## Available Scripts
+This project simulates a real-time event ticketing system to demonstrate the use of Object-Oriented Programming (OOP) and the implementation of the Producer-Consumer pattern in a multithreaded environment.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+### Author Details
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Name**: Aruniga Gnanasegaran
+- **UoW ID**: w2052001
+- **IIT ID**: 20232024
+- **Email**: aruniga.20232024@iit.ac.lk
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+### Project Introduction
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project is part of the **Object-Oriented Programming (5COSC019C)** coursework and simulates a real-time event ticketing system using the Producer-Consumer architecture. It includes customer and vendor threads modifying a shared ticket pool.
 
-### `npm run build`
+#### 1. Java CLI 💻
+A basic implementation built with Java, offering a Command Line Interface (CLI) for user interaction and configuration persistence through file storage.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### 2. Full-stack Application 🌐
+A complete implementation with:
+- **Backend**: Spring Boot
+- **Frontend**: React
+- **Database**: SQLite
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+#### Backend
+- Java JDK 17 or higher ☕
+- Maven 3.8.x 🔧
+- SQLite 3.x 📦
+- Spring Boot 3.2.x ⚙️
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Frontend
+- Node.js 18.x or higher 🔵
+- npm 9.x or higher 📦
+- React  18.3.1 or higher 🎨
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Java CLI
+- Java JDK 23 ☕
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Getting Started
+1. **Clone the Repository for Backend**:
+    ```bash
+    git clone https://github.com/aru-segar/ticketing-system.git
+    ```
+    2. **Clone the Repository for Frontend**:
+    ```bash
+    git clone https://github.com/aru-segar/my-app.git
+    ```
+     2. **Clone the Repository for Java CLI**:
+    ```bash
+    git clone https://github.com/aru-segar/CLI.git
+    ```
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Backend Setup
 
-### Code Splitting
+1. Install dependencies:
+    ```bash
+    ./mvnw clean install
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Start the backend server:
+    ```bash
+    ./mvnw spring-boot:run
+    ```
 
-### Analyzing the Bundle Size
+The server will be available at: `http://localhost:8080`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+#### Frontend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-### Advanced Configuration
+2. Start the frontend server:
+    ```bash
+    ng serve
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The frontend will be available at: `http://localhost:3000`
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### API Documentation
 
-### `npm run build` fails to minify
+#### Base URL
+`http://localhost:8080/ticketing-system`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+### System Control 🎮
+
+- **Start System**  
+  `POST /api/system/start`
+
+- **Stop System**  
+  `POST /api/system/stop`
+
+---
+
+### Configuration ⚙️
+
+- **Save Configuration**  
+  `POST /api/configuration`  
+  Example request body:
+    ```json
+    {
+      "maxTicketCapacity": 50,
+      "totalTickets": 40,
+      "ticketReleaseRate": 2,
+      "customerRetrievalRate": 3,
+    }
+    ```
+
+- **Load Configuration**  
+  `GET /api/configuration`
+
+---
+
+### Vendor Management 🛠️
+
+- **Add Vendor**  
+  `POST /api/vendors/add`
+
+- **Remove Vendor**  
+  `POST /api/vendors/remove`
+
+---
+
+### Customer Management 👥
+
+- **Add Customer**  
+  `POST /api/customers/add`
+
+- **Remove Customer**  
+  `POST /api/customers/remove`
+
+---
+
+### Simulation Stats 📊
+
+- **Get Simulation Stats**  
+  `GET /api/charts/sales-data`
+
+
+---
+
