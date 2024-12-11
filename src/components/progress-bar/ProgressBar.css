@@ -52,26 +52,3 @@
   border-radius: 10px;
   transition: width 0.5s ease-in-out;
 }
-
-/* Adjusting the layout for smaller screens */
-@media (max-width: 600px) {
-  .progress-wrapper {
-    width: 95%; 
-    height: auto;
-    padding: 15px;
-    left: 10px; 
-    bottom: 10px; 
-  }
-
-  .progress-header {
-    font-size: 1.2rem; /* Smaller header for mobile */
-  }
-
-  .ticket-icon {
-    font-size: 1.8rem; /* Smaller icon for mobile */
-  }
-
-  .progress-bar {
-    height: 8px; /* Thinner bar for smaller screens */
-  }
-}

@@ -34,38 +34,3 @@
   color: #1ABC9C; /* Interactive hover color */
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 1200px) {
-  .header-title {
-    font-size: 24px;
-  }
-}
-
-@media (max-width: 992px) {
-  .header-title {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .header {
-    padding: 10px 15px;
-  }
-
-  .header-title {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
-
-  .header-title {
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
-}

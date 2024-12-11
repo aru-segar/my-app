@@ -21,7 +21,7 @@
 
 /* Styling the log container */
 .log-console {
-    height: 450px; 
+    height: 480px; 
     overflow-y: auto;
     padding: 10px;
     background-color: #fff;

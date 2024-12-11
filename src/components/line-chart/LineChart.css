@@ -1,21 +1,19 @@
 /* Container styling */
 .chart-container {
   position: fixed;
-  top: 245px;
+  top: 222px;
   right: 450px;
   width: 42%;
   max-width: 850px;
-  height: 61%;
-  padding: 12px;
+  height: 65%;
+  padding: 15px;
   background: #ffff;
   border: 2px solid #2c3e50;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 9999;
-  transition: width 0.3s ease-in-out, height 0.3s ease-in-out; 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 /* Chart title styling */
@@ -44,19 +42,6 @@
   font-size: 16px;
   font-weight: bold;
   color: #666666;
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-  .chart-container {
-    width: 95%;
-    top: 5px;
-    right: 5px;
-  }
-
-  .chart-title {
-    font-size: 16px;
-  }
 }
 
 /* Hover and focus effects */

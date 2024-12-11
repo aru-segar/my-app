@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
-import "./LineChart.css"; 
+import "./LineChart.css";
 
 Chart.register(...registerables);
 
@@ -11,44 +11,66 @@ const LineChart = () => {
     datasets: [
       {
         label: "Ticket Sales Over Time",
-        data: [], 
-        borderColor: "rgba(75,192,192,1)",
-        borderWidth: 1, 
+        data: [],
+        borderColor: "#000000",
+        borderWidth: 1.2,
         fill: false,
+        pointBorderColor: "orange",
+        pointBackgroundColor: "orange",
       },
     ],
   });
 
   useEffect(() => {
-    // Fetch the initial sales data
-    fetch("http://localhost:8080/ticketing-system/api/chart/sales-data")
-      .then((response) => response.json())
-      .then((data) => {
+    const socket = new WebSocket("ws://localhost:8080/ticketing-system/ws");
+
+    // Fetch initial sales data
+    const fetchInitialData = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:8080/ticketing-system/api/chart/sales-data"
+        );
+        const data = await response.json();
+
+        // Process fetched data
         const labels = data.map((item) =>
           new Date(item.timestamp).toLocaleTimeString()
         );
         const tickets = data.map((item) => item.tickets);
 
-        setChartData((prevState) => ({
-          ...prevState,
+        setChartData({
           labels,
-          datasets: [{ ...prevState.datasets[0], data: tickets }],
-        }));
-      })
-      .catch((error) => console.error("Error fetching sales data:", error));
+          datasets: [
+            {
+              label: "Ticket Sales Over Time",
+              data: tickets,
+              borderColor: "#000000",
+              borderWidth: 1.2,
+              fill: false,
+              pointBorderColor: "orange",
+              pointBackgroundColor: "orange",
+  
+            },
+          ],
+        });
+      } catch (error) {
+        console.error("Error fetching initial sales data:", error);
+      }
+    };
 
-    // WebSocket for real-time updates
-    const socket = new WebSocket("http://localhost:8080/ticketing-system/ws");
+    fetchInitialData();
 
+    // WebSocket connection
+    socket.onopen = () => console.log("WebSocket connected for LineChart.");
     socket.onmessage = (event) => {
       try {
         const message = JSON.parse(event.data);
-        const log = message?.log; // Optional chaining in case log is undefined
 
-        if (log && log.includes("purchased")) {
-          const timestamp = new Date().toLocaleTimeString();
-          const remainingTickets = message?.currentTickets; // Ensure the ticket count exists
+        // Process WebSocket updates (e.g., for ticket sales)
+        const timestamp = new Date().toLocaleTimeString();
+        const remainingTickets = message?.currentTickets;
 
+        if (remainingTickets !== undefined) {
           setChartData((prevState) => ({
             ...prevState,
             labels: [...prevState.labels, timestamp],
@@ -65,8 +87,16 @@ const LineChart = () => {
       }
     };
 
-    return () => socket.close();
-  }, []); // Empty dependency array means this effect runs once on mount
+    socket.onerror = (error) => console.error("WebSocket error:", error);
+    socket.onclose = () => console.log("WebSocket connection closed.");
+
+    // Cleanup on component unmount
+    return () => {
+      if (socket.readyState === WebSocket.OPEN) {
+        socket.close();
+      }
+    };
+  }, []);
 
   return (
     <div className="chart-container">
@@ -82,6 +112,7 @@ const LineChart = () => {
                 font: {
                   size: 12,
                   weight: "bold",
+                  color: "rgba(0, 0, 0, 1)",
                 },
               },
             },
@@ -94,10 +125,11 @@ const LineChart = () => {
                 font: {
                   size: 12,
                   weight: "bold",
+                  color: "rgba(0, 0, 0, 1)",
                 },
               },
               grid: {
-                color: "rgba(200, 200, 200, 0.3)",
+                color: "rgba(220, 220, 220, 0.5)",
               },
             },
             y: {
@@ -107,10 +139,11 @@ const LineChart = () => {
                 font: {
                   size: 12,
                   weight: "bold",
+                  color: "rgba(0, 0, 0, 1)",
                 },
               },
               grid: {
-                color: "rgba(200, 200, 200, 0.3)",
+                color: "rgba(220, 220, 220, 0.5)",
               },
             },
           },

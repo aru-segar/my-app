@@ -3,13 +3,13 @@
   display: flex;
   flex-direction: row; 
   justify-content: center;
-  align-items: flex-start; /* Align items to the top */
-  gap: 20px; /* Space between the boxes */
+  align-items: flex-start; 
+  gap: 20px; 
   padding: 10px 5px;
   z-index: 10;
   position: fixed;
   top: 560px;
-  right: 10px; /* Adjusted margin to move the container slightly */
+  right: 10px; 
 }
 
 /* Individual Box */
@@ -18,7 +18,7 @@
   border: 2px solid #2c3e50;
   padding: 10px 0px; 
   border-radius: 10px;
-  width: 200px; /* Adjusted width */
+  width: 200px; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
   display: flex;
@@ -35,8 +35,7 @@
 
 /* Icon Styling */
 .icon {
-  font-size: 30px; /* Adjusted icon size */
-  color: #333;
+  font-size: 30px; 
 }
 
 /* Title */
@@ -49,8 +48,8 @@ h3 {
 .count-btn {
   background-color: #000;
   color: white;
-  font-size: 12px; /* Adjusted font size */
-  padding: 10px; /* Adjusted padding */
+  font-size: 12px; 
+  padding: 10px; 
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -72,23 +71,21 @@ h3 {
 
 /* Count Styling */
 .count {
-  font-size: 12px; /* Adjusted font size */
+  font-size: 12px; 
   font-weight: bold;
   color: #222;
   min-width: 50px;
   text-align: center;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .box-container {
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-  }
-
-  .box {
-    width: 90%;
-    margin-bottom: 10px;
-  }
+/* Customer Icon */
+.icon-customer {
+  color: #3498db; 
 }
+
+/* Vendor Icon */
+.icon-vendor {
+  color: #e74c3c; 
+}
+
+

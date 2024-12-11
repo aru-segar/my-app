@@ -9,6 +9,7 @@ import ProgressBar from "./components/progress-bar/ProgressBar";
 import StartStopSystem from "./components/start-stop-system/StartStopSystem";
 import Console from "./components/console/Console";
 import LineChart from "./components/line-chart/LineChart";
+import "./components/responsive.css";
 
 const App = () => {
   return (

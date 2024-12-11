@@ -54,7 +54,7 @@ const CustomerVendorManagement = () => {
   return (
     <div className="box-container">
       <div className="box">
-        <FaUserAlt className="icon" />
+        <FaUserAlt className="icon icon-customer" />
         <h3>Customers</h3>
         <div className="count-box">
           <button onClick={removeCustomer} className="count-btn minus-btn">
@@ -68,7 +68,7 @@ const CustomerVendorManagement = () => {
       </div>
 
       <div className="box">
-        <FaStore className="icon" />
+        <FaStore className="icon icon-vendor" />
         <h3>Vendors</h3>
         <div className="count-box">
           <button onClick={removeVendor} className="count-btn minus-btn">
